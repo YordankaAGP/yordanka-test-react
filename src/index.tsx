@@ -4,7 +4,6 @@ import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
 import { store } from './app/store'
 import reportWebVitals from './reportWebVitals'
-import App from './App'
 
 import '@fontsource/roboto/300.css'
 import '@fontsource/roboto/400.css'
@@ -16,12 +15,21 @@ import {
 	Route,
 	RouterProvider,
 } from 'react-router-dom'
+import User from './pages/User'
+import UserDetail from './pages/UserDetail'
+import Layout from './pages/Layout'
+import Error from './pages/Error'
 
 const container = document.getElementById('root')!
 const root = createRoot(container)
 
 const router = createBrowserRouter(
-	createRoutesFromElements(<Route path='/' element={<App />}></Route>)
+	createRoutesFromElements(
+		<Route path='/' element={<Layout />} errorElement={<Error />}>
+			<Route index element={<User />} />
+			<Route path=':userId' element={<UserDetail />} />
+		</Route>
+	)
 )
 
 root.render(

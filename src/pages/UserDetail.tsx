@@ -31,8 +31,6 @@ function UserDetail() {
 		skip: !data,
 	})
 
-	console.log(postData, isPostFetching)
-
 	if (isNaN || (!isUserFetching && !data)) return <Error />
 
 	return (

@@ -47,8 +47,6 @@ function PostTable(props: Props) {
 		setOpenDeleteModal(true)
 	}
 
-	console.log(data)
-
 	return (
 		<>
 			<AlertModal
